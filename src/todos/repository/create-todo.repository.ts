@@ -10,3 +10,4 @@ export class CreateTodoRepository {
     return await this.prisma.todo.create({ data });
   }
 }
+
