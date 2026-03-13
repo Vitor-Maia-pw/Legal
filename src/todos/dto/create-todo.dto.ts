@@ -1,5 +1,10 @@
-import { IsBoolean, IsDateString, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsBoolean, IsDateString, IsNotEmpty, IsOptional, IsString, IsEnum} from "class-validator";
 
+enum TodoPriority {
+  LOW = 'LOW',
+  MEDIUM = 'MEDIUM',
+  HIGH = 'HIGH',
+}
 export class CreateTodoDto {
   @IsString()
   title: string;
@@ -32,9 +37,4 @@ export class CreateTodoDto {
   @IsDateString()
   @IsOptional()
   updateAt?: Date;
-}
-enum TodoPriority {
-  LOW = 'LOW',
-  MEDIUM = 'MEDIUM',
-  HIGH = 'HIGH',
 }
