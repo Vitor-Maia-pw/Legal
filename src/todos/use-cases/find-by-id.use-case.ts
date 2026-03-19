@@ -1,6 +1,6 @@
 import { Injectable, Logger } from "@nestjs/common";
-import { FindTodoRepository } from "../repository";
 import { CreateTodoDto } from "../dto/create-todo.dto";
+import { FindTodoRepository } from "../repository";
 
 @Injectable()
 export class FindTodoUseCase {
@@ -9,10 +9,10 @@ export class FindTodoUseCase {
         private readonly logger: Logger,
     ) { }
 
-    async execute(data: CreateTodoDto) {
+    async execute(id: string) {
         try {
             this.logger.log('Finding toDo...');
-            const todo = await this.findTodoRepository.find(data);
+            const todo = await this.findTodoRepository.execute(id);
             this.logger.log('ToDo found successfully');
             return todo;
         } catch (error) {
