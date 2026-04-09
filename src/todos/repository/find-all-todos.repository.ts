@@ -10,6 +10,6 @@ export class FindAllTodoRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async findAll() {
-    return await this.prisma.todo.FindMany();
+    return await this.prisma.todo.findMany();
   }
 }
